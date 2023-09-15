@@ -1,0 +1,35 @@
+{
+  "name": "@mlhaufe/agency",
+  "version": "0.0.1",
+  "description": "Browser Application framework",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "webpack --mode=production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mlhaufe/agency.git"
+  },
+  "keywords": [
+    "gui"
+  ],
+  "author": "Michael L Haufe <tno@thenewobjective.com> (https://thenewobjective.com)",
+  "license": "AGPL-3.0-only",
+  "bugs": {
+    "url": "https://github.com/mlhaufe/agency/issues"
+  },
+  "homepage": "https://github.com/mlhaufe/agency#readme",
+  "devDependencies": {
+    "@types/node": "^20.6.0",
+    "ts-loader": "^9.4.4",
+    "typescript": "^5.2.2",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  }
+}
