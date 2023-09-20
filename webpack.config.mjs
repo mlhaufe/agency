@@ -7,7 +7,7 @@ const __filename = url.fileURLToPath(import.meta.url),
 export default {
     devtool: 'source-map',
     entry: {
-        main: './src/main.mts'
+        main: './src/index.mts'
     },
     experiments: {
         outputModule: true
