@@ -1,6 +1,6 @@
 {
   "name": "@mlhaufe/agency",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Browser Application framework",
   "type": "module",
   "exports": {
@@ -10,6 +10,7 @@
     }
   },
   "scripts": {
+    "prepare": "npm run build",
     "build": "webpack --mode=production"
   },
   "repository": {
