@@ -7,7 +7,8 @@ const __filename = url.fileURLToPath(import.meta.url),
 export default {
     devtool: 'source-map',
     entry: {
-        main: './src/index.mts'
+        main: './src/index.mts',
+        agents: './src/agents/index.mts'
     },
     experiments: {
         outputModule: true
@@ -36,7 +37,12 @@ export default {
             type: 'module'
         },
         module: true,
-        filename: '[name].mjs',
+        filename: ({ chunk }) => {
+            switch (chunk.name) {
+                case 'main': return 'index.mjs';
+                case 'agents': return 'agents/index.mjs';
+            }
+        },
         path: path.resolve(__dirname, 'dist'),
     }
 };

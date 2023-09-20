@@ -1,2 +1,3 @@
-export * as application from "./Application.mjs";
-export * as button from "./Button.mjs";
+export { Application, ApplicationView } from "./Application.mjs";
+export { Button, ButtonView } from "./Button.mjs";
+export { Heading, HeadingView } from "./Heading.mjs";

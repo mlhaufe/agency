@@ -1,7 +1,7 @@
 import { fromEvent, Observable } from "rxjs";
 import { Agent, View } from "../Agent.mjs";
 
-class ButtonView extends View {
+export class ButtonView extends View {
     override accessor element = document.createElement('button')
 
     clicks = fromEvent(this.element, 'click')
