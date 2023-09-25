@@ -1,33 +1,39 @@
-import { Agent, View } from "../Agent.mjs";
+/*!
+ * @license
+ * Copyright (C) 2023 Michael L Haufe
+ * SPDX-License-Identifier: AGPL-3.0-only
+ * @see <https://spdx.org/licenses/AGPL-3.0-only.html>
+ */
 
-export type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6
+import { Agent, View } from '../Agent.mjs';
+
+export type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
 
 export class HeadingView extends View {
-    #level
+    #level;
 
     constructor({ level }: { level: HeadingLevel }) {
-        super()
-        this.#level = level
-        this.element = document.createElement(`h${level}`)
+        super();
+        this.#level = level;
+        this.element = document.createElement(`h${level}`);
     }
 
-    get level() { return this.#level }
+    get level() { return this.#level; }
 
     override accessor element: HTMLHeadingElement
 }
 
-
 export class Heading extends Agent {
     override accessor view: HeadingView
 
-    constructor({ text, level }: { text: string, level: HeadingLevel }) {
-        super({})
-        this.view = new HeadingView({ level })
-        this.text = text
+    constructor({ text, level }: { text: string; level: HeadingLevel }) {
+        super({});
+        this.view = new HeadingView({ level });
+        this.text = text;
     }
 
-    get level(): HeadingLevel { return this.view.level }
+    get level(): HeadingLevel { return this.view.level; }
 
-    get text() { return this.view.element.textContent ?? '' }
-    set text(text: string) { this.view.element.textContent = text }
+    get text() { return this.view.element.textContent ?? ''; }
+    set text(text: string) { this.view.element.textContent = text; }
 }

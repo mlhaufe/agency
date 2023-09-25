@@ -1,3 +1,10 @@
+/*!
+ * @license
+ * Copyright (C) 2023 Michael L Haufe
+ * SPDX-License-Identifier: AGPL-3.0-only
+ * @see <https://spdx.org/licenses/AGPL-3.0-only.html>
+ */
+
 export abstract class Abstraction { }
 
 export abstract class View {
@@ -11,17 +18,17 @@ export abstract class Agent {
     accessor abstraction: Abstraction | undefined;
     accessor view: View | undefined;
 
-    constructor(options: {}, children: Agent[] = []) {
+    constructor(options: object = {}, children: Agent[] = []) {
         children.forEach(child => this.addChild(child));
     }
 
-    get children(): readonly Agent[] { return this.#children }
+    get children(): readonly Agent[] { return this.#children; }
 
     addChild(child: Agent): void {
-        if (this.#children.includes(child))
-            throw new Error("Child already exists");
+        if (this.children.includes(child))
+            throw new Error('Child already exists');
         if (child.parent)
-            throw new Error("Child already has a parent");
+            throw new Error('Child already has a parent');
         child.parent = this;
         this.#children.push(child);
         if (this.view && child.view)
@@ -30,7 +37,7 @@ export abstract class Agent {
 
     removeChild(child: Agent): void {
         if (!this.#children.includes(child))
-            throw new Error("Child does not exist");
+            throw new Error('Child does not exist');
         child.parent = undefined;
         this.#children = this.#children.filter(c => c !== child);
         if (this.view && child.view)
